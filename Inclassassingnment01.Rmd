@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#importing the dataset
+```{r}
+library(readr)
+dataset <- read_csv("winequalityN.csv")
+View(dataset)
+```
+#1: What are the summary statistics for the alcohol content in the dataset?
+```{r}
+summary(dataset)
+```
+
+#2: What is the mean, median, and standard deviation of the pH level?
+```{r}
+median(dataset$pH)
+```
+
+```{r}
+PH_mean=mean(dataset$pH,na.rm = TRUE)
+PH_mean
+```
+```{r}
+pH_median = median(dataset$pH, na.rm = TRUE)
+pH_median
+```
+```{r}
+pH_std = sd(dataset$pH, na.rm = TRUE)
+pH_std
+```
+#3: What are the minimum and maximum values of residual sugar in the dataset?
+```{r}
+max_residual_sugar=max(dataset$`residual sugar`,na.rm = TRUE)
+max_residual_sugar
+```
+```{r}
+min_residual_sugar=min(dataset$`residual sugar`,na.rm = TRUE)
+min_residual_sugar
+```
+
+#4: What are the quartiles of the total sulfur dioxide in the dataset?
+```{r}
+total_sulfur_dioxide_quartiles=quantile(dataset$`total sulfur dioxide`, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+total_sulfur_dioxide_quartiles
+```
+#5: What is the variance of the quality ratings in the dataset?
+```{r}
+quality_variance = var(dataset$quality, na.rm = TRUE)
+quality_variance
+```
+
